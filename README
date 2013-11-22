@@ -1,0 +1,49 @@
+File system simulation implemented with a tree.
+
+
+Usage:
+	    ls: print the names of all entries (files and directories) in the current directory, in alphabetical order; for directories, print a "/" character at the end of the actual name
+	    cd name: make "name" (which must be a directory) the current directory; if name is ".." go up to the parent directory of the current directory; the parent of / is / (as in Unix); it's an error to cd into a non-existant directory or into a file
+	    mkdir name: create a directory called "name" in the current directory; it's an error to create a directory with the name of an existing entry
+	    rmdir name: remove a directory called "name" from the current directory; it's an error to remove a non-empty directory; it's an error to remove a file with this command; it's an error if no directory "name" exists
+	    mk name: create a file called "name" in the current directory; it's an error to create a file with the name of an existing entry
+	    rm name: remove a file called "name" from the current directory; it's an error to remove a directory with this command; it's an error if no file "name" exists
+	    pwd: print the absolute path to the current working directory (see below for an example)
+	    quit: exit the program, stop the simulation
+
+Sample run:
+	> ls
+	> pwd
+	/
+	> cd ..
+	> pwd
+	/
+	> mkdir tst
+	> ls
+	tst/
+	> mkdir bla
+	> ls
+	bla/
+	tst/
+	> rm bla
+	? error: bla is a directory, use rmdir instead
+	> rmdir bla
+	> ls
+	tst/
+	> cd tst
+	> pwd
+	/tst
+	> ls
+	> mk bla
+	> ls
+	bla
+	> mkdir hey
+	> ls
+	bla
+	hey/
+	> cd hey
+	> pwd
+	/tst/hey
+	> quit
+
+(Sample run and usage instructions from http://gaming.jhu.edu/~phf/2013/fall/cs226/assignment-tree.shtml)
